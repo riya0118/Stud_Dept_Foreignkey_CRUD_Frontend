@@ -1,0 +1,104 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="addForm">
+
+      <div class="form-group col-md-4">
+        <label for="rollno">Rollno</label>
+        <input type="number" formControlName="rollno" class="form-control">
+        <div *ngIf="addForm.controls['rollno'].errors != null && addForm.controls['rollno'].invalid">
+          <div *ngIf="addForm.controls['rollno'].dirty || addForm.controls['rollno'].touched">
+            <div *ngIf="addForm.controls['rollno'].errors['required'] != null" class="text-danger">
+              Rollno is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="name">Name</label>
+        <input type="text" formControlName="name" class="form-control">
+        <div *ngIf="addForm.controls['name'].errors != null && addForm.controls['name'].invalid">
+          <div *ngIf="addForm.controls['name'].dirty || addForm.controls['name'].touched">
+            <div *ngIf="addForm.controls['name'].errors['required'] != null" class="text-danger">
+              Name is Required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="dept">Department: </label> &nbsp;
+        <select formControlName="dept" class="col-md-4">
+          <option value="" selected>--select--</option>
+          <option *ngFor="let dept of departments" value="{{ dept._id }}">{{ dept.deptName }}</option>
+        </select>
+        <div *ngIf="addForm.controls['dept'].errors != null && addForm.controls['dept'].invalid">
+          <div *ngIf="addForm.controls['dept'].dirty || addForm.controls['dept'].touched">
+            <div *ngIf="addForm.controls['dept'].errors['required'] != null" class="text-danger">
+              Department is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="age">Age</label>
+        <input type="number" formControlName="age" class="form-control">
+        <div *ngIf="addForm.controls['age'].errors != null && addForm.controls['age'].invalid">
+          <div *ngIf="addForm.controls['age'].dirty || addForm.controls['age'].touched">
+            <div *ngIf="addForm.controls['age'].errors['required'] != null" class="text-danger">
+              Age is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="sem">Sem</label>
+        <input type="number" formControlName="sem" class="form-control">
+        <div *ngIf="addForm.controls['sem'].errors != null && addForm.controls['sem'].invalid">
+          <div *ngIf="addForm.controls['sem'].dirty || addForm.controls['sem'].touched">
+            <div *ngIf="addForm.controls['sem'].errors['required'] != null" class="text-danger">
+              Sem is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" class="form-control">
+        <div *ngIf="addForm.controls['username'].errors != null && addForm.controls['username'].invalid">
+          <div *ngIf="addForm.controls['username'].dirty || addForm.controls['username'].touched">
+            <div *ngIf="addForm.controls['username'].errors['required'] != null" class="text-danger">
+              Username is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control">
+        <div *ngIf="addForm.controls['password'].errors != null && addForm.controls['password'].invalid">
+          <div *ngIf="addForm.controls['password'].dirty || addForm.controls['password'].touched">
+            <div *ngIf="addForm.controls['password'].errors['required'] != null" class="text-danger">
+              Password is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <input type="submit" value="Add" (click)="add()" [disabled]="addForm.pristine || addForm.invalid">
+      </div>
+    </form>
+  </div>
+</div>

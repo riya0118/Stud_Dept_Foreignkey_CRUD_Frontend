@@ -1,0 +1,105 @@
+
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="editForm">
+
+      <div class="form-group col-md-4">
+        <label for="rollno">Rollno</label>
+        <input type="number" formControlName="rollno" #rollno [(ngModel)]="student.rollno" class="form-control">
+        <div *ngIf="editForm.controls['rollno'].errors != null && editForm.controls['rollno'].invalid">
+          <div *ngIf="editForm.controls['rollno'].dirty || editForm.controls['rollno'].touched">
+            <div *ngIf="editForm.controls['rollno'].errors['required'] != null" class="text-danger">
+              Rollno is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="name">Name</label>
+        <input type="text" formControlName="name" #name [(ngModel)]="student.name" class="form-control">
+        <div *ngIf="editForm.controls['name'].errors != null && editForm.controls['name'].invalid">
+          <div *ngIf="editForm.controls['name'].dirty || editForm.controls['name'].touched">
+            <div *ngIf="editForm.controls['name'].errors['required'] != null" class="text-danger">
+              Name is Required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="dept">Department: </label> &nbsp;
+        <select formControlName="dept" [(ngModel)]="selectedDept" class="col-md-4">
+          <option value="" selected>--select--</option>
+          <option *ngFor="let dept of departments" value="{{ dept._id }}">{{ dept.deptName }}</option>
+        </select>
+        <div *ngIf="editForm.controls['dept'].errors != null && editForm.controls['dept'].invalid">
+          <div *ngIf="editForm.controls['dept'].dirty || editForm.controls['dept'].touched">
+            <div *ngIf="editForm.controls['dept'].errors['required'] != null" class="text-danger">
+              Department is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="age">Age</label>
+        <input type="number" formControlName="age" #age [(ngModel)]="student.age" class="form-control">
+        <div *ngIf="editForm.controls['age'].errors != null && editForm.controls['age'].invalid">
+          <div *ngIf="editForm.controls['age'].dirty || editForm.controls['age'].touched">
+            <div *ngIf="editForm.controls['age'].errors['required'] != null" class="text-danger">
+              Age is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="sem">Sem</label>
+        <input type="number" formControlName="sem" #sem [(ngModel)]="student.sem" class="form-control">
+        <div *ngIf="editForm.controls['sem'].errors != null && editForm.controls['sem'].invalid">
+          <div *ngIf="editForm.controls['sem'].dirty || editForm.controls['sem'].touched">
+            <div *ngIf="editForm.controls['sem'].errors['required'] != null" class="text-danger">
+              Sem is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" #username [(ngModel)]="student.username" class="form-control">
+        <div *ngIf="editForm.controls['username'].errors != null && editForm.controls['username'].invalid">
+          <div *ngIf="editForm.controls['username'].dirty || editForm.controls['username'].touched">
+            <div *ngIf="editForm.controls['username'].errors['required'] != null" class="text-danger">
+              Username is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" #password [(ngModel)]="student.password" class="form-control">
+        <div *ngIf="editForm.controls['password'].errors != null && editForm.controls['password'].invalid">
+          <div *ngIf="editForm.controls['password'].dirty || editForm.controls['password'].touched">
+            <div *ngIf="editForm.controls['password'].errors['required'] != null" class="text-danger">
+              Password is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="form-group col-md-4">
+        <input type="submit" value="Edit" (click)="update()">
+      </div>
+    </form>
+  </div>
+</div>

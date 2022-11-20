@@ -1,0 +1,29 @@
+<a [routerLink]="['/addstudent']" class="btn btn-primary">Add Student</a> &nbsp;&nbsp;
+<!-- <a class="btn btn-danger" (click)="logout()">Logout</a> -->
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+      <td>Rollno</td>
+      <td>Name</td>
+      <td>Dept</td>
+      <td>Age</td>
+      <td>Sem</td>
+      <td>Username</td>
+      <td colspan="2">Actions</td>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let student of students">
+          <td>{{ student.rollno }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.dept }}</td>
+          <td>{{ student.age }}</td>
+          <td>{{ student.sem }}</td>
+          <td>{{ student.username }}</td>
+          <td><a [routerLink]="['/editstudent', student._id]" class="btn btn-primary">Edit</a></td>
+          <td><a (click) = "deleteStudent(student._id)"  class="btn btn-danger">Delete</a></td>
+      </tr>
+  </tbody>
+</table>
