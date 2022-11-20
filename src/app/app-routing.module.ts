@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddstudentComponent } from './addstudent/addstudent.component';
+import { AuthGuard } from './auth.guard';
 import { EditstudentComponent } from './editstudent/editstudent.component';
+import { LoginComponent } from './login/login.component';
 import { StudentlistComponent } from './studentlist/studentlist.component';
 
 const routes: Routes = [
-  { path: "studentlist", component: StudentlistComponent },
-  { path: "addstudent", component: AddstudentComponent },
-  { path: "editstudent/:id", component: EditstudentComponent }
+  { path: "login", component: LoginComponent },
+  { path: "studentlist", component: StudentlistComponent, canActivate: [AuthGuard] },
+  { path: "addstudent", component: AddstudentComponent, canActivate: [AuthGuard] },
+  { path: "editstudent/:id", component: EditstudentComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

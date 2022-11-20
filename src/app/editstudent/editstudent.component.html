@@ -31,7 +31,6 @@
 
       <div class="form-group col-md-4">
         <label for="dept">Department: </label> &nbsp;
-        {{student.dept}}
         <select formControlName="dept" [(ngModel)]="student.dept" class="col-md-4">
           <option value="">--select--</option>
           <option *ngFor="let dept of departments" [ngValue]="dept._id" [selected]="dept.deptName === selectedDept">{{ dept.deptName }}</option>
